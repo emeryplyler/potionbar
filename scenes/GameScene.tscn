@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
 [ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
-[ext_resource type="Theme" uid="uid://doap7m6oej73w" path="res://assets/UI/clock.tres" id="3_fcbdq"]
+[ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_fcbdq"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_qe0ls")
