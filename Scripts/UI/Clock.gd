@@ -1,16 +1,20 @@
 extends Node2D
 @onready var timer = $Timer
+var current_time = 0 # global var to tell what time it is
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass
+
+
+func _process(delta):
+	if timer.time_left != 0: # if timer is running
+		current_time = displayTime()
+
+
+func displayTime():
+	var seconds = floor(timer.time_left)
+	return seconds
 	
-func startTimer():
-	timer.start()
 
-
+func _on_timeout():
+	print("Timed out")
