@@ -20,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	clock_display.text = str(clock.current_time)
+	clock_display.text = clock.display_time
 	
 	if num_customers == 0:
 		pass
