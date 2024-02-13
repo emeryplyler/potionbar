@@ -10,6 +10,7 @@ var myNode = preload("res://scenes/temp_customer.tscn")
 func _ready():
 	#instantiates obj, can be made into method
 	var instance = myNode.instantiate()
+	instance.position = get_node("Customers/Ordering").position
 	add_child(instance)
 	
 	num_customers = 0

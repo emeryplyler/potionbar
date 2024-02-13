@@ -6,6 +6,14 @@
 [node name="TempCustomer" type="Node2D"]
 
 [node name="Customer" type="Sprite2D" parent="."]
-position = Vector2(198, 179)
+position = Vector2(-59, -97.3994)
+scale = Vector2(0.670391, 0.670391)
 texture = ExtResource("1_1ffmq")
 script = ExtResource("2_1gdym")
+
+[node name="TextEdit" type="TextEdit" parent="Customer"]
+offset_left = -151.0
+offset_top = 302.0
+offset_right = 232.0
+offset_bottom = 396.0
+text = "Hello!"
