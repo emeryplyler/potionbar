@@ -6,10 +6,12 @@ var num_customers
 @onready var clock = get_node("/root/Clock")
 @onready var clock_display = get_node("UI/Clock")
 var myNode = preload("res://scenes/temp_customer.tscn")
+var orders = 0
+var instance
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#instantiates obj, can be made into method
-	var instance = myNode.instantiate()
+	instance = myNode.instantiate()
 	instance.position = get_node("Customers/Ordering").position
 	add_child(instance)
 	
@@ -29,6 +31,9 @@ func _process(delta):
 	
 	if num_customers == 0:
 		pass
+		
+	if instance.getScript().acceptOrder:
+		print("accepted")
 
 
 func _on_go_to_cauldron_button_up():

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Clock="*res://scenes/Clock.tscn"
+Customer="*res://scenes/Customer.gd"
 
 [display]
 

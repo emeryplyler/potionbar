@@ -1,6 +1,6 @@
 extends Sprite2D
 
-
+var acceptOrder = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,4 +14,6 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if get_rect().has_point(to_local(event.position)):
-			print("clicked")
+			if(!acceptOrder):
+				get_node("RichTextLabel").set_text("I would like a potion please!")
+				acceptOrder = true

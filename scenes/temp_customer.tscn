@@ -11,9 +11,9 @@ scale = Vector2(0.670391, 0.670391)
 texture = ExtResource("1_1ffmq")
 script = ExtResource("2_1gdym")
 
-[node name="TextEdit" type="TextEdit" parent="Customer"]
-offset_left = -151.0
-offset_top = 302.0
-offset_right = 232.0
-offset_bottom = 396.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Customer"]
+offset_left = 150.658
+offset_top = -314.146
+offset_right = 683.658
+offset_bottom = -227.146
 text = "Hello!"
