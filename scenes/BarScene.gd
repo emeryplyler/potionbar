@@ -5,9 +5,13 @@ var Customers: Array
 var num_customers
 @onready var clock = get_node("/root/Clock")
 @onready var clock_display = get_node("UI/Clock")
-
+var myNode = preload("res://scenes/temp_customer.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#instantiates obj, can be made into method
+	var instance = myNode.instantiate()
+	add_child(instance)
+	
 	num_customers = 0
 	if clock == null:
 		print("Clock Not Found")

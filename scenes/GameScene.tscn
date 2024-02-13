@@ -52,6 +52,12 @@ texture_normal = ExtResource("1_3chj6")
 texture_pressed = ExtResource("1_3chj6")
 texture_hover = ExtResource("1_3chj6")
 
+[node name="TextEdit" type="TextEdit" parent="UI/GoToBar"]
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 38.0
+text = "go to bar"
+
 [node name="Clock" type="RichTextLabel" parent="UI"]
 layout_mode = 1
 offset_left = 32.0
@@ -65,5 +71,12 @@ text = "10:30"
 [node name="Cauldron" type="Sprite2D" parent="."]
 position = Vector2(576, 528)
 texture = ExtResource("1_3chj6")
+
+[node name="TextEdit" type="TextEdit" parent="Cauldron"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
 
 [connection signal="button_up" from="UI/GoToBar" to="." method="_on_gotobar_button_up"]
