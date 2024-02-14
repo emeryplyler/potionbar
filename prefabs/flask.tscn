@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://codvxrknv4b5q"]
+
+[ext_resource type="Script" path="res://prefabs/flask.gd" id="1_8ap6c"]
+[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="2_selsh"]
+[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="3_5hpe7"]
+
+[node name="Flask" type="Node2D"]
+script = ExtResource("1_8ap6c")
+
+[node name="Fullflask" type="Sprite2D" parent="."]
+texture = ExtResource("2_selsh")
+
+[node name="Emptyflask" type="Sprite2D" parent="."]
+texture = ExtResource("3_5hpe7")

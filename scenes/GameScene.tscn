@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://s1quqlgq1pq5"]
+[gd_scene load_steps=7 format=3 uid="uid://s1quqlgq1pq5"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
 [ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
 [ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_fcbdq"]
+[ext_resource type="Script" path="res://scenes/ingredients.gd" id="4_vfbln"]
+[ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="5_eardx"]
+[ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="6_q4tkx"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_qe0ls")
@@ -79,4 +82,37 @@ offset_right = 51.0
 offset_bottom = -18.0
 text = "cauldron"
 
+[node name="igrnedicets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_vfbln")
+
+[node name="carrot" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 85.0
+offset_right = 248.0
+offset_bottom = 285.0
+texture_normal = ExtResource("5_eardx")
+texture_pressed = ExtResource("5_eardx")
+texture_hover = ExtResource("5_eardx")
+texture_disabled = ExtResource("5_eardx")
+texture_focused = ExtResource("5_eardx")
+
+[node name="onion" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 484.0
+offset_bottom = 282.0
+texture_normal = ExtResource("6_q4tkx")
+texture_pressed = ExtResource("6_q4tkx")
+texture_hover = ExtResource("6_q4tkx")
+texture_disabled = ExtResource("6_q4tkx")
+texture_focused = ExtResource("6_q4tkx")
+
 [connection signal="button_up" from="UI/GoToBar" to="." method="_on_gotobar_button_up"]
+[connection signal="pressed" from="igrnedicets/carrot" to="igrnedicets" method="_on_carrot_pressed"]
+[connection signal="pressed" from="igrnedicets/onion" to="igrnedicets" method="_on_onion_pressed"]

@@ -1,9 +1,12 @@
 extends Node2D
 
+var flask = preload("res://prefabs/flask.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var flask_instance = flask.instantiate()
+	flask_instance.position = Vector2(600, 400)
+	add_child(flask_instance)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
