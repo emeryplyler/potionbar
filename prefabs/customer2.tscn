@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv70aypg86rhx"]
+
+[ext_resource type="Texture2D" uid="uid://dl4hgwbn8p62y" path="res://assets/kittie.png" id="1_rmi5e"]
+
+[node name="Customer2" type="Node2D"]
+
+[node name="Kittie" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rmi5e")
