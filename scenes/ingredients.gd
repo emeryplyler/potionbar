@@ -13,16 +13,18 @@ func _process(delta):
 
 func _on_onion_pressed():
 	# add onion to flask
-	if Flask.flask_contents.has("onion"):
+	print("potion: ", Flask.potionFinished)
+	if Flask.flask_contents.has("onion") && !Flask.potionFinished:
 		Flask.flask_contents["onion"] += 1
-	else:
+	elif !Flask.flask_contents.has("onion"):
 		Flask.flask_contents["onion"] = 1 # not sure if new entry initializes to 0
 	print(Flask.flask_contents) # NOTE: temp debug
 
 
 func _on_carrot_pressed():
-	if Flask.flask_contents.has("carrot"):
+	print("potion: ", Flask.potionFinished)
+	if Flask.flask_contents.has("carrot") && !Flask.potionFinished:
 		Flask.flask_contents["carrot"] += 1
-	else:
+	elif !Flask.flask_contents.has("carrot"):
 		Flask.flask_contents["carrot"] = 1
 	print(Flask.flask_contents) 

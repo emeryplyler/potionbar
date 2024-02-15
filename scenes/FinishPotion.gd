@@ -1,8 +1,6 @@
-extends Node2D
-var is_empty = true
+extends Control
 
-var flask_contents:Dictionary = {}
-var potionFinished = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,5 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not is_empty:
-		$Emptyflask.set_visible(false)
+	pass
+
+
+func _on_texture_button_pressed():
+	Flask.potionFinished = true
+	print("potion finished: ", Flask.potionFinished)

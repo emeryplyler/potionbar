@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s1quqlgq1pq5"]
+[gd_scene load_steps=10 format=3 uid="uid://s1quqlgq1pq5"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
 [ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/draggable.gd" id="4_cdglm"]
 [ext_resource type="Script" path="res://scenes/ingredients.gd" id="4_vfbln"]
 [ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="5_eardx"]
+[ext_resource type="Script" path="res://scenes/FinishPotion.gd" id="6_lg4ao"]
 [ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="6_q4tkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqiua"]
@@ -102,6 +103,21 @@ offset_right = 51.0
 offset_bottom = -18.0
 text = "cauldron"
 
+[node name="FinishPotion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_lg4ao")
+
+[node name="TextureButton" type="TextureButton" parent="FinishPotion"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 474.0
+offset_right = 554.0
+offset_bottom = 514.0
+scale = Vector2(3.24, 2.59016)
+
 [node name="igrnedicets" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -138,5 +154,6 @@ texture_focused = ExtResource("6_q4tkx")
 [connection signal="body_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="FinishPotion/TextureButton" to="FinishPotion" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="igrnedicets/carrot" to="igrnedicets" method="_on_carrot_pressed"]
 [connection signal="pressed" from="igrnedicets/onion" to="igrnedicets" method="_on_onion_pressed"]
