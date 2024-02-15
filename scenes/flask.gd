@@ -10,8 +10,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if potionFinished:
-		print("should disappear")
-		#visible = false
-		print(visible)
-		print(is_visible_in_tree())
+	pass

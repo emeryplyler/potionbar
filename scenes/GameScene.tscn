@@ -97,7 +97,6 @@ shape = SubResource("RectangleShape2D_kqiua")
 position = Vector2(600, 300)
 
 [node name="FullFlask" type="Sprite2D" parent="Flask"]
-visible = false
 texture = ExtResource("6_b421h")
 
 [node name="TextEdit" type="TextEdit" parent="Flask/FullFlask"]
@@ -108,7 +107,6 @@ offset_bottom = -18.0
 text = "cauldron"
 
 [node name="EmptyFlask" type="Sprite2D" parent="Flask"]
-visible = false
 texture = ExtResource("7_mfsky")
 script = ExtResource("6_ics8s")
 

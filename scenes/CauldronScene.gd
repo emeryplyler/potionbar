@@ -12,7 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(Flask.potionFinished):
+		$Flask/EmptyFlask.visible = false
 
 
 func _on_gotobar_button_up():
