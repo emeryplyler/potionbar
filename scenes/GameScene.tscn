@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://s1quqlgq1pq5"]
+[gd_scene load_steps=12 format=3 uid="uid://s1quqlgq1pq5"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
 [ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
 [ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_fcbdq"]
-[ext_resource type="Script" path="res://scenes/draggable.gd" id="4_cdglm"]
 [ext_resource type="Script" path="res://scenes/ingredients.gd" id="4_vfbln"]
 [ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="5_eardx"]
+[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="6_b421h"]
+[ext_resource type="Script" path="res://scenes/flask.gd" id="6_ics8s"]
 [ext_resource type="Script" path="res://scenes/FinishPotion.gd" id="6_lg4ao"]
 [ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="6_q4tkx"]
+[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="7_mfsky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqiua"]
 
@@ -78,7 +80,6 @@ text = "10:30"
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
 position = Vector2(350, 125)
-script = ExtResource("4_cdglm")
 
 [node name="cawwot" type="Sprite2D" parent="Node2D"]
 visible = false
@@ -91,6 +92,32 @@ visible = false
 visible = false
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_kqiua")
+
+[node name="Flask" type="Node2D" parent="."]
+position = Vector2(600, 300)
+
+[node name="FullFlask" type="Sprite2D" parent="Flask"]
+visible = false
+texture = ExtResource("6_b421h")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/FullFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+
+[node name="EmptyFlask" type="Sprite2D" parent="Flask"]
+visible = false
+texture = ExtResource("7_mfsky")
+script = ExtResource("6_ics8s")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/EmptyFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
 
 [node name="Cauldron" type="Sprite2D" parent="."]
 position = Vector2(576, 528)

@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 Clock="*res://scenes/Clock.tscn"
 Customer="*res://scenes/Customer.gd"
 GlobalDrag="res://prefabs/globalDrag.gd"
-Flask="*res://prefabs/flask.gd"
+Flask="*res://scenes/flask.gd"
 Customers="*res://scenes/Customers.gd"
 
 [display]
