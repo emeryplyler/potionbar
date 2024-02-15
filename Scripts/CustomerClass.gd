@@ -13,8 +13,10 @@ func _ready():
 		#order[i] = randi_range(0, 1)
 		#print(order[i])
 		
-	order = {"carrots": (randtf()), 
-			"onions": (randtf())}
+	order = {"carrots": (randi_range(0, 3)), 
+			"onions": (randi_range(0, 3))}
+	#order = {"carrots": (randtf()), 
+			#"onions": (randtf())}
 
 	print("order is: ", order)
 

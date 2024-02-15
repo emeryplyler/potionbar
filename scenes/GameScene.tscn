@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://s1quqlgq1pq5"]
+[gd_scene load_steps=9 format=3 uid="uid://s1quqlgq1pq5"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
 [ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
 [ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_fcbdq"]
+[ext_resource type="Script" path="res://scenes/draggable.gd" id="4_cdglm"]
 [ext_resource type="Script" path="res://scenes/ingredients.gd" id="4_vfbln"]
 [ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="5_eardx"]
 [ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="6_q4tkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqiua"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_qe0ls")
@@ -71,6 +74,23 @@ theme = ExtResource("3_fcbdq")
 theme_override_font_sizes/normal_font_size = 25
 text = "10:30"
 
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(350, 125)
+script = ExtResource("4_cdglm")
+
+[node name="cawwot" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("5_eardx")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+visible = false
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_kqiua")
+
 [node name="Cauldron" type="Sprite2D" parent="."]
 position = Vector2(576, 528)
 texture = ExtResource("1_3chj6")
@@ -114,5 +134,9 @@ texture_disabled = ExtResource("6_q4tkx")
 texture_focused = ExtResource("6_q4tkx")
 
 [connection signal="button_up" from="UI/GoToBar" to="." method="_on_gotobar_button_up"]
+[connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="igrnedicets/carrot" to="igrnedicets" method="_on_carrot_pressed"]
 [connection signal="pressed" from="igrnedicets/onion" to="igrnedicets" method="_on_onion_pressed"]

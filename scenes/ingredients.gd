@@ -1,6 +1,5 @@
 extends Control
 
-var flask_contents:Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,16 +13,16 @@ func _process(delta):
 
 func _on_onion_pressed():
 	# add onion to flask
-	if flask_contents.has("onion"):
-		flask_contents["onion"] += 1
+	if Flask.flask_contents.has("onion"):
+		Flask.flask_contents["onion"] += 1
 	else:
-		flask_contents["onion"] = 1 # not sure if new entry initializes to 0
-	print(flask_contents) # NOTE: temp debug
+		Flask.flask_contents["onion"] = 1 # not sure if new entry initializes to 0
+	print(Flask.flask_contents) # NOTE: temp debug
 
 
 func _on_carrot_pressed():
-	if flask_contents.has("carrot"):
-		flask_contents["carrot"] += 1
+	if Flask.flask_contents.has("carrot"):
+		Flask.flask_contents["carrot"] += 1
 	else:
-		flask_contents["carrot"] = 1
-	print(flask_contents) 
+		Flask.flask_contents["carrot"] = 1
+	print(Flask.flask_contents) 

@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dokluioyqidkc"]
+[gd_scene load_steps=3 format=3 uid="uid://dokluioyqidkc"]
 
 [ext_resource type="Texture2D" uid="uid://fophe0y56ihu" path="res://assets/customer.png" id="1_1ffmq"]
-[ext_resource type="Script" path="res://Scripts/CustomerClass.gd" id="1_6w8u5"]
 [ext_resource type="Script" path="res://scenes/Customer.gd" id="2_1gdym"]
 
 [node name="TempCustomer" type="Node2D"]
-script = ExtResource("1_6w8u5")
 
 [node name="Customer" type="Sprite2D" parent="."]
 position = Vector2(-59, -97.3994)
