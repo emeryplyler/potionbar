@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo8st63f1kach"]
+[gd_scene load_steps=6 format=3 uid="uid://bo8st63f1kach"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3nxkg"]
 [ext_resource type="Script" path="res://scenes/BarScene.gd" id="1_m3cd4"]
 [ext_resource type="PackedScene" uid="uid://cfu2mys846n6p" path="res://prefabs/customer.tscn" id="2_hh4wh"]
 [ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_0d4tm"]
+[ext_resource type="Script" path="res://scenes/Customers.gd" id="5_3crop"]
 
 [node name="BarScene" type="Node2D"]
 script = ExtResource("1_m3cd4")
@@ -62,6 +63,7 @@ theme_override_font_sizes/normal_font_size = 25
 text = "10:30"
 
 [node name="Customers" type="Node2D" parent="."]
+script = ExtResource("5_3crop")
 
 [node name="Ordering" type="Node2D" parent="Customers"]
 position = Vector2(817, 363)
