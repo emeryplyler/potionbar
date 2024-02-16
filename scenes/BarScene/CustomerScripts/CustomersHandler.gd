@@ -1,8 +1,8 @@
 extends Node2D
 
-var myNode = preload("res://scenes/temp_customer.tscn")
-var customer1 = preload("res://prefabs/customer1.tscn")
-var customer2 = preload("res://prefabs/customer2.tscn")
+var myNode = preload("res://prefabs/customer_scenes/temp_customer.tscn")
+var customer1 = preload("res://prefabs/customer_scenes/customer1.tscn")
+var customer2 = preload("res://prefabs/customer_scenes/customer2.tscn")
 var orders = 0
 var instance
 var isInstantiated = false;

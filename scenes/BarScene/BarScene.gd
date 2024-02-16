@@ -28,4 +28,4 @@ func _process(delta):
 
 
 func _on_go_to_cauldron_button_up():
-	get_tree().change_scene_to_file("res://scenes/GameScene.tscn")
+	get_tree().change_scene_to_file("res://scenes/GameScene/GameScene.tscn")

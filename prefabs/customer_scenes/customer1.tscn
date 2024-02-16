@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://2qjytnrcqqkc"]
+
+[ext_resource type="PackedScene" uid="uid://jdg18d1s3ouo" path="res://prefabs/customer_scenes/customer_base.tscn" id="1_6c5u0"]
+[ext_resource type="Texture2D" uid="uid://dl4hgwbn8p62y" path="res://assets/kittie.png" id="2_whaj2"]
+[ext_resource type="Script" path="res://scenes/BarScene/CustomerScripts/CustomerClick.gd" id="3_dv5p3"]
+
+[node name="CustomerBase" instance=ExtResource("1_6c5u0")]
+
+[node name="Kittie" type="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_whaj2")
+script = ExtResource("3_dv5p3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Kittie" index="0"]
+offset_left = -702.0
+offset_top = 154.0
+offset_right = -310.0
+offset_bottom = 276.0

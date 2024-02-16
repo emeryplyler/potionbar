@@ -17,4 +17,4 @@ func _process(delta):
 
 
 func _on_gotobar_button_up():
-	get_tree().change_scene_to_file("res://scenes/BarScene.tscn")
+	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")

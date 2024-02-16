@@ -1,20 +1,20 @@
 [gd_scene load_steps=12 format=3 uid="uid://s1quqlgq1pq5"]
 
-[ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3chj6"]
-[ext_resource type="Script" path="res://scenes/CauldronScene.gd" id="1_qe0ls"]
-[ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_fcbdq"]
-[ext_resource type="Script" path="res://scenes/ingredients.gd" id="4_vfbln"]
-[ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="5_eardx"]
-[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="6_b421h"]
-[ext_resource type="Script" path="res://scenes/flask.gd" id="6_ics8s"]
-[ext_resource type="Script" path="res://scenes/FinishPotion.gd" id="6_lg4ao"]
-[ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="6_q4tkx"]
-[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="7_mfsky"]
+[ext_resource type="Script" path="res://scenes/GameScene/GameScene.gd" id="1_16daj"]
+[ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="2_mbecn"]
+[ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_2aype"]
+[ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="4_umkyo"]
+[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="5_al5bh"]
+[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="6_p3aqc"]
+[ext_resource type="Script" path="res://scenes/GameScene/flask.gd" id="7_wywvp"]
+[ext_resource type="Script" path="res://scenes/GameScene/FinishPotion.gd" id="8_v8rha"]
+[ext_resource type="Script" path="res://scenes/GameScene/ingredients.gd" id="9_wsvr3"]
+[ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="10_mttls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqiua"]
 
 [node name="GameScene" type="Node2D"]
-script = ExtResource("1_qe0ls")
+script = ExtResource("1_16daj")
 metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -57,9 +57,9 @@ offset_right = -35.0
 offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("1_3chj6")
-texture_pressed = ExtResource("1_3chj6")
-texture_hover = ExtResource("1_3chj6")
+texture_normal = ExtResource("2_mbecn")
+texture_pressed = ExtResource("2_mbecn")
+texture_hover = ExtResource("2_mbecn")
 
 [node name="TextEdit" type="TextEdit" parent="UI/GoToBar"]
 layout_mode = 0
@@ -73,7 +73,7 @@ offset_left = 32.0
 offset_top = 34.0
 offset_right = 119.0
 offset_bottom = 75.0
-theme = ExtResource("3_fcbdq")
+theme = ExtResource("3_2aype")
 theme_override_font_sizes/normal_font_size = 25
 text = "10:30"
 
@@ -83,7 +83,7 @@ position = Vector2(350, 125)
 
 [node name="cawwot" type="Sprite2D" parent="Node2D"]
 visible = false
-texture = ExtResource("5_eardx")
+texture = ExtResource("4_umkyo")
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
 visible = false
@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_kqiua")
 position = Vector2(600, 300)
 
 [node name="FullFlask" type="Sprite2D" parent="Flask"]
-texture = ExtResource("6_b421h")
+texture = ExtResource("5_al5bh")
 
 [node name="TextEdit" type="TextEdit" parent="Flask/FullFlask"]
 offset_left = -60.0
@@ -107,8 +107,8 @@ offset_bottom = -18.0
 text = "cauldron"
 
 [node name="EmptyFlask" type="Sprite2D" parent="Flask"]
-texture = ExtResource("7_mfsky")
-script = ExtResource("6_ics8s")
+texture = ExtResource("6_p3aqc")
+script = ExtResource("7_wywvp")
 
 [node name="TextEdit" type="TextEdit" parent="Flask/EmptyFlask"]
 offset_left = -60.0
@@ -119,7 +119,7 @@ text = "cauldron"
 
 [node name="Cauldron" type="Sprite2D" parent="."]
 position = Vector2(576, 528)
-texture = ExtResource("1_3chj6")
+texture = ExtResource("2_mbecn")
 
 [node name="TextEdit" type="TextEdit" parent="Cauldron"]
 offset_left = -60.0
@@ -133,7 +133,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_lg4ao")
+script = ExtResource("8_v8rha")
 
 [node name="TextureButton" type="TextureButton" parent="FinishPotion"]
 layout_mode = 0
@@ -148,7 +148,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("4_vfbln")
+script = ExtResource("9_wsvr3")
 
 [node name="carrot" type="TextureButton" parent="igrnedicets"]
 layout_mode = 0
@@ -156,11 +156,11 @@ offset_left = 48.0
 offset_top = 85.0
 offset_right = 248.0
 offset_bottom = 285.0
-texture_normal = ExtResource("5_eardx")
-texture_pressed = ExtResource("5_eardx")
-texture_hover = ExtResource("5_eardx")
-texture_disabled = ExtResource("5_eardx")
-texture_focused = ExtResource("5_eardx")
+texture_normal = ExtResource("4_umkyo")
+texture_pressed = ExtResource("4_umkyo")
+texture_hover = ExtResource("4_umkyo")
+texture_disabled = ExtResource("4_umkyo")
+texture_focused = ExtResource("4_umkyo")
 
 [node name="onion" type="TextureButton" parent="igrnedicets"]
 layout_mode = 0
@@ -168,11 +168,11 @@ offset_left = 284.0
 offset_top = 82.0
 offset_right = 484.0
 offset_bottom = 282.0
-texture_normal = ExtResource("6_q4tkx")
-texture_pressed = ExtResource("6_q4tkx")
-texture_hover = ExtResource("6_q4tkx")
-texture_disabled = ExtResource("6_q4tkx")
-texture_focused = ExtResource("6_q4tkx")
+texture_normal = ExtResource("10_mttls")
+texture_pressed = ExtResource("10_mttls")
+texture_hover = ExtResource("10_mttls")
+texture_disabled = ExtResource("10_mttls")
+texture_focused = ExtResource("10_mttls")
 
 [connection signal="button_up" from="UI/GoToBar" to="." method="_on_gotobar_button_up"]
 [connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
