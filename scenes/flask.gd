@@ -1,7 +1,7 @@
 extends Node2D
 var is_empty = true
 
-var flask_contents:Dictionary = {}
+var flask_contents:Dictionary = {"carrots" : 0, "onions" : 0}
 var potionFinished = false
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -13,4 +13,7 @@ func _process(delta):
 
 func _on_texture_button_pressed():
 	Flask.potionFinished = true
-	print("potion finished: ", Flask.potionFinished)
+	print("potion finished: ", Flask.flask_contents)
+	print("order: ", CustomerArray.order)
+	if(Flask.flask_contents == CustomerArray.order):
+		print("yay")
