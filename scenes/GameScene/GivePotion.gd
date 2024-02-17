@@ -11,7 +11,12 @@ func _process(delta):
 	pass
 
 
+
 func _on_texture_button_pressed():
-	Flask.potionFinished = true
-	print("potion finished: ", Flask.flask_contents)
-	print("order: ", CustomerArray.order)
+	if(Flask.flask_contents == CustomerArray.order):
+		print("yay")
+	else:
+		print(":(")
+	Flask.flask_contents = {"carrots": 0, "onions": 0}
+	Flask.potionFinished = false
+	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")

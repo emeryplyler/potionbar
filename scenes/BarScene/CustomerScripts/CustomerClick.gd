@@ -16,4 +16,5 @@ func _input(event):
 		if get_rect().has_point(to_local(event.position)):
 			if(!acceptOrder):
 				get_node("RichTextLabel").set_text("I would like a potion please!")
+				print("order is: ", CustomerArray.order)
 				acceptOrder = true

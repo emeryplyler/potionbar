@@ -12,9 +12,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Flask.potionFinished):
-		$Flask/EmptyFlask.visible = false
+	$Flask/EmptyFlask.visible = !Flask.potionFinished
 
 
 func _on_gotobar_button_up():
 	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")
+
+
+func _on_texture_button_pressed():
+	pass # Replace with function body.

@@ -18,7 +18,6 @@ func _ready():
 	#order = {"carrots": (randtf()), 
 			#"onions": (randtf())}
 
-	print("order is: ", order)
 
 func randtf():
 	if randi_range(0,1): return true 
