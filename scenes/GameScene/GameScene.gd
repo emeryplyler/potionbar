@@ -23,6 +23,8 @@ func _on_texture_button_pressed():
 		print("yay")
 	else:
 		print(":(")
+	Singleton.orders.pop_front()
+	print(Singleton.orders)
 	Flask.flask_contents = {"carrots": 0, "onions": 0}
 	Flask.potionFinished = false
 	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")

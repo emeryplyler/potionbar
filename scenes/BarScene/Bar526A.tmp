@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo8st63f1kach"]
+
+[ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3nxkg"]
+[ext_resource type="Script" path="res://scenes/BarScene/BarScene.gd" id="1_m3cd4"]
+[ext_resource type="PackedScene" uid="uid://cfu2mys846n6p" path="res://prefabs/customer_scenes/customer.tscn" id="2_hh4wh"]
+[ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_0d4tm"]
+[ext_resource type="Script" path="res://scenes/BarScene/CustomerScripts/CustomersHandler.gd" id="5_3crop"]
+
+[node name="BarScene" type="Node2D"]
+script = ExtResource("1_m3cd4")
+customer_scene = ExtResource("2_hh4wh")
+metadata/_edit_horizontal_guides_ = [420.0]
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.85098, 0.705882, 0.85098, 1)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GoToCauldron" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -184.0
+offset_right = -35.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("1_3nxkg")
+texture_pressed = ExtResource("1_3nxkg")
+texture_hover = ExtResource("1_3nxkg")
+
+[node name="TextEdit" type="TextEdit" parent="UI/GoToCauldron"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 36.0
+text = "Go to cauldron"
+
+[node name="Clock" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 144.0
+offset_bottom = 75.0
+theme = ExtResource("3_0d4tm")
+theme_override_font_sizes/normal_font_size = 25
+text = "10:30"
+
+[node name="Customers" type="Node2D" parent="."]
+script = ExtResource("5_3crop")
+
+[node name="Ordering" type="Node2D" parent="Customers"]
+position = Vector2(817, 363)
+
+[node name="Queue" type="Node2D" parent="Customers"]
+position = Vector2(168, 363)
+
+[node name="Spawn" type="Node2D" parent="Customers"]
+position = Vector2(-210, 363)
+
+[connection signal="button_up" from="UI/GoToCauldron" to="." method="_on_go_to_cauldron_button_up"]

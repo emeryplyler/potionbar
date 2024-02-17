@@ -13,14 +13,15 @@ func _ready():
 	randomize()
 	var customers = [myNode, customer1, customer2]
 	var kinds = customers[randi() % customers.size()]
-	instance = kinds.instantiate()
+	Singleton.customers.append(kinds.instantiate())
+	print("Customers: ", Singleton.customers)
 	#instance = myNode.instantiate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(get_node("Ordering") != null):
-		instance.position = get_node("Ordering").position
+		Singleton.customers[Singleton.customers.size() - 1].position = get_node("Ordering").position
 		if(!isInstantiated):
-			add_child(instance)
+			add_child(Singleton.customers[Singleton.customers.size()-1])
 		isInstantiated = true;
