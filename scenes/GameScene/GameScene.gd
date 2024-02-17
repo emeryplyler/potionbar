@@ -1,7 +1,6 @@
 extends Node2D
 
 #var flask = preload("res://prefabs/flask.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#var flask_instance = flask.instantiate()
@@ -20,4 +19,10 @@ func _on_gotobar_button_up():
 
 
 func _on_texture_button_pressed():
-	pass # Replace with function body.
+	if(Flask.flask_contents == CustomerArray.order):
+		print("yay")
+	else:
+		print(":(")
+	Flask.flask_contents = {"carrots": 0, "onions": 0}
+	Flask.potionFinished = false
+	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")

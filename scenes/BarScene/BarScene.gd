@@ -5,6 +5,7 @@ var Customers: Array
 var num_customers
 @onready var clock = get_node("/root/Clock")
 @onready var clock_display = get_node("UI/Clock")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

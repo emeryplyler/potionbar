@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cooll5q8ibxj2"]
+
+[ext_resource type="Script" path="res://scenes/Singleton.gd" id="1_ljfmx"]
+
+[node name="Singleton" type="Node2D"]
+script = ExtResource("1_ljfmx")

@@ -15,6 +15,8 @@ func _ready():
 		
 	order = {"carrots": (randi_range(0, 3)), 
 			"onions": (randi_range(0, 3))}
+	Singleton.orders.append(order)
+	print("Orders: ", Singleton.orders)
 	#order = {"carrots": (randtf()), 
 			#"onions": (randtf())}
 
