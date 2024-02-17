@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://s1quqlgq1pq5"]
+[gd_scene load_steps=12 format=3 uid="uid://s1quqlgq1pq5"]
 
 [ext_resource type="Script" path="res://scenes/GameScene/GameScene.gd" id="1_16daj"]
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="2_mbecn"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="5_al5bh"]
 [ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="6_p3aqc"]
 [ext_resource type="Script" path="res://scenes/GameScene/flask.gd" id="7_wywvp"]
-[ext_resource type="Script" path="res://scenes/GameScene/GivePotion.gd" id="8_erg5r"]
 [ext_resource type="Script" path="res://scenes/GameScene/FinishPotion.gd" id="8_v8rha"]
 [ext_resource type="Script" path="res://scenes/GameScene/ingredients.gd" id="9_wsvr3"]
 [ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="10_mttls"]
@@ -147,7 +146,6 @@ offset_left = 141.0
 offset_top = 464.0
 offset_right = 181.0
 offset_bottom = 504.0
-script = ExtResource("8_erg5r")
 
 [node name="TextureButton" type="TextureButton" parent="GivePotion"]
 layout_mode = 0

@@ -17,14 +17,15 @@ func _process(delta):
 func _on_gotobar_button_up():
 	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")
 
-
+#turn in potion
 func _on_texture_button_pressed():
-	if(Flask.flask_contents == CustomerArray.order):
-		print("yay")
-	else:
-		print(":(")
-	Singleton.orders.pop_front()
-	print(Singleton.orders)
-	Flask.flask_contents = {"carrots": 0, "onions": 0}
-	Flask.potionFinished = false
-	get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")
+	if(Flask.potionFinished):
+		if(Flask.flask_contents == Singleton.orders[0]):
+			print("yay")
+		else:
+			print(":(")
+		Singleton.orders.pop_front()
+		print(Singleton.orders)
+		Flask.flask_contents = {"carrots": 0, "onions": 0}
+		Flask.potionFinished = false
+		get_tree().change_scene_to_file("res://scenes/BarScene/BarScene.tscn")

@@ -18,9 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Clock="*res://scenes/Clock.tscn"
-Customer="*res://scenes/BarScene/CustomerScripts/CustomerClick.gd"
 Flask="*res://scenes/GameScene/flask.gd"
-CustomerArray="*res://prefabs/customer_scenes/customer_base.tscn"
 Singleton="*res://scenes/Singleton.tscn"
 
 [display]
