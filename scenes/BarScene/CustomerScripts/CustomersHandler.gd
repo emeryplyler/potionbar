@@ -8,26 +8,13 @@ var instance
 var isInstantiated = false
 var temp
 var queueTemp
-var customerInfo = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Singleton.Seats = [$seat1, $seat2, $seat3, $seat4]
 	#instantiates obj, can be made into method
 	isInstantiated = false
-	randomize()
-	var customers = [myNode, customer1, customer2]
-	var kinds = customers[randi() % customers.size()]
-	customerInfo.append(kinds)
-	customerInfo.append(Singleton.customerNum)
-	
-	#get_node("" + kinds).num = Singleton.customerNum
-	Singleton.customers.append(kinds.instantiate())
-	Singleton.customers[Singleton.customers.size() - 1].position = get_node("Spawn").position
-	add_child(Singleton.customers[Singleton.customers.size() - 1])
-	print("Customers: ", Singleton.customers)
-	
-	Singleton.customerNum+=1
+	spawnCustomer()
 	
 	
 	#createQueue()
@@ -48,3 +35,20 @@ func _process(delta):
 		#add_child(temp)
 		#isInstantiated = true;
 	pass
+	
+func spawnCustomer():
+	randomize()
+	var customers = [myNode, customer1, customer2]
+	var kinds = customers[randi() % customers.size()]
+	
+	#get_node("" + kinds).num = Singleton.customerNum
+	Singleton.customers.append(kinds.instantiate())
+	Singleton.customers[Singleton.customers.size() - 1].position = get_node("Spawn").position
+	add_child(Singleton.customers[Singleton.customers.size() - 1])
+	print("Customers: ", Singleton.customers)
+	
+	Singleton.customerNum+=1
+
+
+func _on_timer_timeout():
+	spawnCustomer()

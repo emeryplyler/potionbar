@@ -11,9 +11,8 @@ var movement_speed = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(orderGenerated)
-	if(num != Singleton.customers.size()):
-		print("this shouldn't be running more than once")
-		randomizeOrder()
+	num = Singleton.customerNum
+	randomizeOrder()
 	# pick seat
 	seat = Singleton.Seats[randi_range(0, 3)]
 	
