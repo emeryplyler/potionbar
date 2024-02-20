@@ -288,6 +288,7 @@ metadata/_edit_use_anchors_ = true
 anchor_mode = 0
 
 [connection signal="button_up" from="UI/GoToCauldron" to="." method="_on_go_to_cauldron_button_up"]
+[connection signal="pressed" from="UI2/GoToBar" to="." method="_on_go_to_bar_pressed"]
 [connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_entered"]

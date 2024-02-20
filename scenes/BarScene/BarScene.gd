@@ -30,3 +30,7 @@ func _process(delta):
 
 func _on_go_to_cauldron_button_up():
 	camera_2d.position.x = 1152
+
+
+func _on_go_to_bar_pressed():
+	camera_2d.position.x = 0
