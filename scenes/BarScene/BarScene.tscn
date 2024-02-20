@@ -62,14 +62,20 @@ text = "Go to cauldron"
 [node name="Customers" type="Node2D" parent="."]
 script = ExtResource("5_3crop")
 
-[node name="Ordering" type="Node2D" parent="Customers"]
-position = Vector2(817, 363)
-
-[node name="Queue" type="Node2D" parent="Customers"]
-position = Vector2(168, 363)
-
 [node name="Spawn" type="Node2D" parent="Customers"]
-position = Vector2(-210, 363)
+position = Vector2(-220, 363)
+
+[node name="seat1" type="Node2D" parent="Customers"]
+position = Vector2(162, 363)
+
+[node name="seat2" type="Node2D" parent="Customers"]
+position = Vector2(431, 363)
+
+[node name="seat3" type="Node2D" parent="Customers"]
+position = Vector2(759, 363)
+
+[node name="seat4" type="Node2D" parent="Customers"]
+position = Vector2(1001, 363)
 
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(1152, 0)

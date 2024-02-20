@@ -18,8 +18,3 @@ func _input(event):
 				get_node("RichTextLabel").set_text("I would like a potion please!")
 				print("order is: ", get_parent().order)
 				acceptOrder = true;
-			else:
-				print("this should work")
-				print(get_parent().position)
-				print(get_parent().get_parent().get_node("Queue").position)
-				get_parent().position = get_parent().get_parent().get_node("Queue").position

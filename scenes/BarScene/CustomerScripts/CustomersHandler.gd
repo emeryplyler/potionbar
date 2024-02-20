@@ -12,6 +12,7 @@ var customerInfo = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Singleton.Seats = [$seat1, $seat2, $seat3, $seat4]
 	#instantiates obj, can be made into method
 	isInstantiated = false
 	randomize()
@@ -21,25 +22,29 @@ func _ready():
 	customerInfo.append(Singleton.customerNum)
 	
 	#get_node("" + kinds).num = Singleton.customerNum
-	Singleton.customers.append(customerInfo)
+	Singleton.customers.append(kinds.instantiate())
+	Singleton.customers[Singleton.customers.size() - 1].position = get_node("Spawn").position
+	add_child(Singleton.customers[Singleton.customers.size() - 1])
 	print("Customers: ", Singleton.customers)
-	temp = Singleton.customers[Singleton.customers.size()-1][0].instantiate()
 	
 	Singleton.customerNum+=1
-	createQueue()
+	
+	
+	#createQueue()
 	#instance = myNode.instantiate()
 
 #Create a function, where we test customer size and instantiate a new instance at queue
-func createQueue():
-	if(Singleton.customers.size() > 1):
-		for i in Singleton.customers.size() - 1:
-			queueTemp = Singleton.customers[i][0].instantiate()
-			queueTemp.position = get_node("Queue").position
-			add_child(queueTemp)
+#func createQueue():
+	#if(Singleton.customers.size() > 1):
+		#for i in Singleton.customers.size() - 1:
+			#queueTemp = Singleton.customers[i][0].instantiate()
+			#queueTemp.position = get_node("Queue").position
+			#add_child(queueTemp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(get_node("Ordering") != null && !isInstantiated):
-		temp.position = get_node("Ordering").position
-		add_child(temp)
-		isInstantiated = true;
+	#if(get_node("Ordering") != null && !isInstantiated):
+		#
+		#add_child(temp)
+		#isInstantiated = true;
+	pass
