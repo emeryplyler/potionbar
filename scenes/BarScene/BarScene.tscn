@@ -59,16 +59,6 @@ offset_right = 132.0
 offset_bottom = 36.0
 text = "Go to cauldron"
 
-[node name="Clock" type="RichTextLabel" parent="UI"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 34.0
-offset_right = 144.0
-offset_bottom = 75.0
-theme = ExtResource("3_0d4tm")
-theme_override_font_sizes/normal_font_size = 25
-text = "10:30"
-
 [node name="Customers" type="Node2D" parent="."]
 script = ExtResource("5_3crop")
 
@@ -136,17 +126,6 @@ layout_mode = 0
 offset_right = 129.0
 offset_bottom = 38.0
 text = "go to bar"
-metadata/_edit_use_anchors_ = true
-
-[node name="Clock" type="RichTextLabel" parent="UI2"]
-layout_mode = 1
-offset_left = 32.0
-offset_top = 34.0
-offset_right = 119.0
-offset_bottom = 75.0
-theme = ExtResource("3_0d4tm")
-theme_override_font_sizes/normal_font_size = 25
-text = "10:30"
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -286,6 +265,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="Clock" type="RichTextLabel" parent="Camera2D"]
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 144.0
+offset_bottom = 75.0
+theme = ExtResource("3_0d4tm")
+theme_override_font_sizes/normal_font_size = 25
+text = "10:30"
 
 [connection signal="button_up" from="UI/GoToCauldron" to="." method="_on_go_to_cauldron_button_up"]
 [connection signal="pressed" from="UI2/GoToBar" to="." method="_on_go_to_bar_pressed"]

@@ -3,7 +3,7 @@ extends Node2D
 var Customers: Array
 var num_customers
 @onready var clock = get_node("/root/Clock")
-@onready var clock_display = get_node("UI/Clock")
+@onready var clock_display = $Camera2D/Clock
 @onready var camera_2d = $Camera2D
 
 # Called when the node enters the scene tree for the first time.
