@@ -1,14 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo8st63f1kach"]
+[gd_scene load_steps=13 format=3 uid="uid://bo8st63f1kach"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3nxkg"]
 [ext_resource type="Script" path="res://scenes/BarScene/BarScene.gd" id="1_m3cd4"]
-[ext_resource type="PackedScene" uid="uid://cfu2mys846n6p" path="res://prefabs/customer_scenes/customer.tscn" id="2_hh4wh"]
 [ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_0d4tm"]
 [ext_resource type="Script" path="res://scenes/BarScene/CustomerScripts/CustomersHandler.gd" id="5_3crop"]
+[ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="6_4twbe"]
+[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="7_5akrq"]
+[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="8_xbueo"]
+[ext_resource type="Script" path="res://scenes/GameScene/flask.gd" id="9_dhv0m"]
+[ext_resource type="Script" path="res://scenes/GameScene/FinishPotion.gd" id="10_iq0v3"]
+[ext_resource type="Script" path="res://scenes/GameScene/ingredients.gd" id="11_2dbj5"]
+[ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="12_nf0ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jxg2"]
 
 [node name="BarScene" type="Node2D"]
 script = ExtResource("1_m3cd4")
-customer_scene = ExtResource("2_hh4wh")
 metadata/_edit_horizontal_guides_ = [420.0]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -74,4 +81,217 @@ position = Vector2(168, 363)
 [node name="Spawn" type="Node2D" parent="Customers"]
 position = Vector2(-210, 363)
 
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="tempbg" type="ColorRect" parent="Background2"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.552941, 0.721569, 0.85098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1693.0
+offset_top = 280.0
+offset_right = 1794.0
+offset_bottom = 320.0
+text = "GAme Scene "
+fit_content = true
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="UI2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1152.0
+offset_right = 2304.0
+offset_bottom = 648.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="GoToBar" type="TextureButton" parent="UI2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -184.0
+offset_right = -35.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("1_3nxkg")
+texture_pressed = ExtResource("1_3nxkg")
+texture_hover = ExtResource("1_3nxkg")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="UI2/GoToBar"]
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 38.0
+text = "go to bar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Clock" type="RichTextLabel" parent="UI2"]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 119.0
+offset_bottom = 75.0
+theme = ExtResource("3_0d4tm")
+theme_override_font_sizes/normal_font_size = 25
+text = "10:30"
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(350, 125)
+
+[node name="cawwot" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("6_4twbe")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+visible = false
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_3jxg2")
+
+[node name="Flask" type="Node2D" parent="."]
+position = Vector2(1752, 300)
+
+[node name="FullFlask" type="Sprite2D" parent="Flask"]
+texture = ExtResource("7_5akrq")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/FullFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyFlask" type="Sprite2D" parent="Flask"]
+texture = ExtResource("8_xbueo")
+script = ExtResource("9_dhv0m")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/EmptyFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="GivePotionImage" type="Sprite2D" parent="."]
+position = Vector2(1354, 530)
+texture = ExtResource("1_3nxkg")
+
+[node name="TextEdit" type="TextEdit" parent="GivePotionImage"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "give potion"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(1728, 528)
+texture = ExtResource("1_3nxkg")
+
+[node name="TextEdit" type="TextEdit" parent="Cauldron"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="GivePotion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1293.0
+offset_top = 464.0
+offset_right = 1333.0
+offset_bottom = 504.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="GivePotion"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.00549, 3.24884)
+metadata/_edit_use_anchors_ = true
+
+[node name="FinishPotion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1152.0
+offset_right = 1192.0
+offset_bottom = 40.0
+script = ExtResource("10_iq0v3")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="FinishPotion"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 474.0
+offset_right = 554.0
+offset_bottom = 514.0
+scale = Vector2(3.24, 2.59016)
+metadata/_edit_use_anchors_ = true
+
+[node name="igrnedicets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1152.0
+offset_right = 1192.0
+offset_bottom = 40.0
+script = ExtResource("11_2dbj5")
+metadata/_edit_use_anchors_ = true
+
+[node name="carrot" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 85.0
+offset_right = 248.0
+offset_bottom = 285.0
+texture_normal = ExtResource("6_4twbe")
+texture_pressed = ExtResource("6_4twbe")
+texture_hover = ExtResource("6_4twbe")
+texture_disabled = ExtResource("6_4twbe")
+texture_focused = ExtResource("6_4twbe")
+metadata/_edit_use_anchors_ = true
+
+[node name="onion" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 484.0
+offset_bottom = 282.0
+texture_normal = ExtResource("12_nf0ig")
+texture_pressed = ExtResource("12_nf0ig")
+texture_hover = ExtResource("12_nf0ig")
+texture_disabled = ExtResource("12_nf0ig")
+texture_focused = ExtResource("12_nf0ig")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [connection signal="button_up" from="UI/GoToCauldron" to="." method="_on_go_to_cauldron_button_up"]
+[connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="FinishPotion/TextureButton" to="FinishPotion" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="igrnedicets/carrot" to="igrnedicets" method="_on_carrot_pressed"]
+[connection signal="pressed" from="igrnedicets/onion" to="igrnedicets" method="_on_onion_pressed"]
