@@ -1,0 +1,227 @@
+[gd_scene load_steps=12 format=3 uid="uid://be7u08e5h2xjt"]
+
+[ext_resource type="Script" path="res://scenes/GameScene/GameScene.gd" id="1_16daj"]
+[ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="2_mbecn"]
+[ext_resource type="Theme" uid="uid://dim6eyxte87jk" path="res://assets/UI/text.tres" id="3_2aype"]
+[ext_resource type="Texture2D" uid="uid://snhgb7f3ma3d" path="res://assets/carrot.png" id="4_umkyo"]
+[ext_resource type="Texture2D" uid="uid://cm5oo7o5lg257" path="res://assets/fullflask.png" id="5_al5bh"]
+[ext_resource type="Texture2D" uid="uid://dlee64mq71oh7" path="res://assets/emptyflask.png" id="6_p3aqc"]
+[ext_resource type="Script" path="res://scenes/GameScene/flask.gd" id="7_wywvp"]
+[ext_resource type="Script" path="res://scenes/GameScene/FinishPotion.gd" id="8_v8rha"]
+[ext_resource type="Script" path="res://scenes/GameScene/ingredients.gd" id="9_wsvr3"]
+[ext_resource type="Texture2D" uid="uid://0ixf8tv2ra8r" path="res://assets/onion.png" id="10_mttls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqiua"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_16daj")
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="tempbg" type="ColorRect" parent="Background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.552941, 0.721569, 0.85098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 541.0
+offset_top = 280.0
+offset_right = 642.0
+offset_bottom = 320.0
+text = "GAme Scene "
+fit_content = true
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="GoToBar" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -184.0
+offset_right = -35.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_mbecn")
+texture_pressed = ExtResource("2_mbecn")
+texture_hover = ExtResource("2_mbecn")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="UI/GoToBar"]
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 38.0
+text = "go to bar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Clock" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 119.0
+offset_bottom = 75.0
+theme = ExtResource("3_2aype")
+theme_override_font_sizes/normal_font_size = 25
+text = "10:30"
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(350, 125)
+
+[node name="cawwot" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("4_umkyo")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+visible = false
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_kqiua")
+
+[node name="Flask" type="Node2D" parent="."]
+position = Vector2(600, 300)
+
+[node name="FullFlask" type="Sprite2D" parent="Flask"]
+texture = ExtResource("5_al5bh")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/FullFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyFlask" type="Sprite2D" parent="Flask"]
+texture = ExtResource("6_p3aqc")
+script = ExtResource("7_wywvp")
+
+[node name="TextEdit" type="TextEdit" parent="Flask/EmptyFlask"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="GivePotionImage" type="Sprite2D" parent="."]
+position = Vector2(202, 530)
+texture = ExtResource("2_mbecn")
+
+[node name="TextEdit" type="TextEdit" parent="GivePotionImage"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "give potion"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(576, 528)
+texture = ExtResource("2_mbecn")
+
+[node name="TextEdit" type="TextEdit" parent="Cauldron"]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 51.0
+offset_bottom = -18.0
+text = "cauldron"
+metadata/_edit_use_anchors_ = true
+
+[node name="GivePotion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 141.0
+offset_top = 464.0
+offset_right = 181.0
+offset_bottom = 504.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="GivePotion"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.00549, 3.24884)
+metadata/_edit_use_anchors_ = true
+
+[node name="FinishPotion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_v8rha")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="FinishPotion"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 474.0
+offset_right = 554.0
+offset_bottom = 514.0
+scale = Vector2(3.24, 2.59016)
+metadata/_edit_use_anchors_ = true
+
+[node name="igrnedicets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_wsvr3")
+metadata/_edit_use_anchors_ = true
+
+[node name="carrot" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 85.0
+offset_right = 248.0
+offset_bottom = 285.0
+texture_normal = ExtResource("4_umkyo")
+texture_pressed = ExtResource("4_umkyo")
+texture_hover = ExtResource("4_umkyo")
+texture_disabled = ExtResource("4_umkyo")
+texture_focused = ExtResource("4_umkyo")
+metadata/_edit_use_anchors_ = true
+
+[node name="onion" type="TextureButton" parent="igrnedicets"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 484.0
+offset_bottom = 282.0
+texture_normal = ExtResource("10_mttls")
+texture_pressed = ExtResource("10_mttls")
+texture_hover = ExtResource("10_mttls")
+texture_disabled = ExtResource("10_mttls")
+texture_focused = ExtResource("10_mttls")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_up" from="UI/GoToBar" to="." method="_on_gotobar_button_up"]
+[connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="GivePotion/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="FinishPotion/TextureButton" to="FinishPotion" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="igrnedicets/carrot" to="igrnedicets" method="_on_carrot_pressed"]
+[connection signal="pressed" from="igrnedicets/onion" to="igrnedicets" method="_on_onion_pressed"]
