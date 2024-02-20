@@ -26,6 +26,7 @@ func _process(delta):
 	if num_customers == 0:
 		pass
 		
+	$Flask/EmptyFlask.visible = !Flask.potionFinished
 
 
 func _on_go_to_cauldron_button_up():
@@ -34,3 +35,16 @@ func _on_go_to_cauldron_button_up():
 
 func _on_go_to_bar_pressed():
 	camera_2d.position.x = 0
+
+
+func _on_give_button_pressed():
+	#turn in potion
+	if(Flask.potionFinished):
+		if(Flask.flask_contents == Singleton.orders[0]):
+			print("yay")
+		else:
+			print(":(")
+		Singleton.orders.pop_front()
+		print(Singleton.orders)
+		Flask.flask_contents = {"carrots": 0, "onions": 0}
+		Flask.potionFinished = false
