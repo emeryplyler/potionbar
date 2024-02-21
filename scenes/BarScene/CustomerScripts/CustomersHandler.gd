@@ -17,23 +17,8 @@ func _ready():
 	spawnCustomer()
 	
 	
-	#createQueue()
-	#instance = myNode.instantiate()
-
-#Create a function, where we test customer size and instantiate a new instance at queue
-#func createQueue():
-	#if(Singleton.customers.size() > 1):
-		#for i in Singleton.customers.size() - 1:
-			#queueTemp = Singleton.customers[i][0].instantiate()
-			#queueTemp.position = get_node("Queue").position
-			#add_child(queueTemp)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if(get_node("Ordering") != null && !isInstantiated):
-		#
-		#add_child(temp)
-		#isInstantiated = true;
 	pass
 	
 func spawnCustomer():
