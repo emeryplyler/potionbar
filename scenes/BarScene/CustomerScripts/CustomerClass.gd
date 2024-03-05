@@ -7,6 +7,7 @@ var orderGenerated = false
 var num
 var seat
 var movement_speed = 500
+var served = false
 
 #ingredients
 #potions
@@ -32,7 +33,7 @@ func _ready():
 	var seatIndex = randi_range(0, Singleton.Seats.size() -1);
 	seat = Singleton.Seats[seatIndex]
 	Singleton.Seats.pop_at(seatIndex)
-	print(Singleton.Seats)
+	print("AHHHHHHHHHHHHH" ,Singleton.Seats)
 	
 
 func ingredientList():
@@ -83,4 +84,5 @@ func randomizeOrder():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = position.move_toward(seat.position, delta * movement_speed)
+	if(!served):
+		position = position.move_toward(seat.position, delta * movement_speed)

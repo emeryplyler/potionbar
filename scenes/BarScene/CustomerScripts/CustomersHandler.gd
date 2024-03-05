@@ -27,10 +27,16 @@ func spawnCustomer():
 	var kinds = customers[randi() % customers.size()]
 	
 	#get_node("" + kinds).num = Singleton.customerNum
-	Singleton.customers.append(kinds.instantiate())
-	Singleton.customers[Singleton.customers.size() - 1].position = get_node("Spawn").position
-	add_child(Singleton.customers[Singleton.customers.size() - 1])
-	print("Customers: ", Singleton.customers)
+	print(Singleton.Seats.size())
+	#STOPS NEW CUSTOMERS FROM SHOWING UP IF SEATS FULL
+	# CAN CHANGE TO ADD TO A LINE IF WE WANT 
+	if(Singleton.Seats.size()):
+		Singleton.customers.append(kinds.instantiate())
+		Singleton.customers[Singleton.customers.size() - 1].position = get_node("Spawn").position
+		add_child(Singleton.customers[Singleton.customers.size() - 1])
+		print("Customers: ", Singleton.customers)
+	
+	
 	
 	Singleton.customerNum+=1
 
