@@ -29,7 +29,10 @@ func _ready():
 	num = Singleton.customerNum
 	randomizeOrder()
 	# pick seat
-	seat = Singleton.Seats[randi_range(0, 3)]
+	var seatIndex = randi_range(0, Singleton.Seats.size() -1);
+	seat = Singleton.Seats[seatIndex]
+	Singleton.Seats.pop_at(seatIndex)
+	print(Singleton.Seats)
 	
 
 func ingredientList():
