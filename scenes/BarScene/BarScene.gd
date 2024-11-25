@@ -1,10 +1,10 @@
 extends Node2D
 
 var Customers: Array
-@export var customer_scene: PackedScene
 var num_customers
 @onready var clock = get_node("/root/Clock")
-@onready var clock_display = get_node("UI/Clock")
+@onready var clock_display = $Camera2D/Clock
+@onready var camera_2d = $Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +26,15 @@ func _process(delta):
 	if num_customers == 0:
 		pass
 		
+	$Flask/EmptyFlask.visible = !Flask.potionFinished
 
 
 func _on_go_to_cauldron_button_up():
-	get_tree().change_scene_to_file("res://scenes/GameScene/GameScene.tscn")
+	camera_2d.position.x = 1152
+
+
+func _on_go_to_bar_pressed():
+	camera_2d.position.x = 0
+
+
+

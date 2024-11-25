@@ -3,7 +3,7 @@ extends Node2D
 var current_time # global fraction var to tell what time it is
 var display_time: String = "" # global str var to display time in clock UI
 @export var opening_time = 10
-@export var closing_time = 18
+@export var closing_time = 20
 
 func _ready():
 	current_time = 0
