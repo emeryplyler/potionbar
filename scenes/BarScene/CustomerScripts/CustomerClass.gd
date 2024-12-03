@@ -33,7 +33,7 @@ func _ready():
 	var seatIndex = randi_range(0, Singleton.Seats.size() -1);
 	seat = Singleton.Seats[seatIndex]
 	Singleton.Seats.pop_at(seatIndex)
-	print("AHHHHHHHHHHHHH" ,Singleton.Seats)
+	print("AHHHHHHHHHHHHH seats:" ,Singleton.Seats)
 	
 
 func ingredientList():

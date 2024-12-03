@@ -63,4 +63,4 @@ func find_display_time(fraction: float):
 	return new_display_time
 
 func _on_timeout():
-	print("Timed out")
+	print("Clock timed out")

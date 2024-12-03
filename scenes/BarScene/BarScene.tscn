@@ -177,6 +177,7 @@ text = "cauldron"
 metadata/_edit_use_anchors_ = true
 
 [node name="Cauldron" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1728, 528)
 texture = ExtResource("1_3nxkg")
 
@@ -190,21 +191,46 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FinishPotion" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 1152.0
-offset_right = 1192.0
-offset_bottom = 40.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("10_iq0v3")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton" type="TextureButton" parent="FinishPotion"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.2
+anchor_bottom = 2.2
 offset_left = 514.0
 offset_top = 474.0
 offset_right = 554.0
 offset_bottom = 514.0
-scale = Vector2(3.24, 2.59016)
+scale = Vector2(1.23858, 0.990161)
+texture_normal = ExtResource("1_3nxkg")
 metadata/_edit_use_anchors_ = true
+
+[node name="FinishText" type="RichTextLabel" parent="FinishPotion/TextureButton"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -122.0
+offset_right = 46.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Bottle It!"
 
 [node name="igrnedicets" type="Control" parent="."]
 layout_mode = 3
