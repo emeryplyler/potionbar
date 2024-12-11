@@ -138,6 +138,8 @@ func _on_cherry_blossoms_pressed():
 	elif !Flask.flask_contents.has("cherryBlossoms"):
 		Flask.flask_contents["cherryBlossoms"] = 1
 	print(Flask.flask_contents) 
+	var animator:AnimationPlayer = get_node("cherryBlossoms/IngredientAnimator")
+	animator.play("selected")
 
 
 func _on_rosemary_pressed():

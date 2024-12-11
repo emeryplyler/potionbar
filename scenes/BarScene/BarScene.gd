@@ -2,7 +2,7 @@ extends Node2D
 
 var Customers: Array
 var num_customers
-@onready var clock = get_node("/root/Clock")
+@onready var clock = get_node("/root/Clock") # have to use get_node because it spawns in
 @onready var clock_display = $Camera2D/Clock
 @onready var camera_2d = $Camera2D
 
@@ -15,7 +15,7 @@ func _ready():
 	if clock == null:
 		print("Clock Not Found")
 		
-	if clock.get_child(0).time_left == 0: # restart timer if timed out
+	if clock.get_child(0).time_left == 0: # restart timer before game starts, if timed out
 		clock.get_child(0).start()
 
 

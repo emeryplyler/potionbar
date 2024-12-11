@@ -5,6 +5,7 @@ var orders = []
 var finishedOrdering = false;
 var customerNum = 0;
 var Seats = []
+var money = 0
 var emptyPotion:Dictionary = {"rosemary": 0, "lavender":0, "sunflowers":0, "ravensClaw":0,
 					"whiskers":0, "feathers":0, "poisonIvy":0, "mandrakeRoot":0,
 					"eyeOfNewt":0, "chemicalX":0,"cherryBlossoms":0,"scales":0,

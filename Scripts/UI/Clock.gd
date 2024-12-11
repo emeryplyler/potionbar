@@ -5,6 +5,9 @@ var display_time: String = "" # global str var to display time in clock UI
 @export var opening_time = 10
 @export var closing_time = 20
 
+# NOTE: ok so to change the amount of IRL time it takes for the day to pass i think you
+# have to go into the prefabs folder and edit the timer in the clock scene. rn it's like 60 sec
+
 func _ready():
 	current_time = 0
 	

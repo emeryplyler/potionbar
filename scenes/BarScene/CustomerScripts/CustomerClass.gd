@@ -12,14 +12,14 @@ var served = false
 #ingredients
 #potions
 var potions:Dictionary = {0 : ["Sugar and Spice", Singleton.emptyPotion.duplicate()],
-							1 : ["Rootbeer2", Singleton.emptyPotion.duplicate()],
-							2 : ["Curly Cue", Singleton.emptyPotion.duplicate()],
-							3 : ["Icarus", Singleton.emptyPotion.duplicate()], 
+							1 : ["a Rootbeer 2", Singleton.emptyPotion.duplicate()],
+							2 : ["a Curly Cue", Singleton.emptyPotion.duplicate()],
+							3 : ["an Icarus", Singleton.emptyPotion.duplicate()], 
 							4 : ["The Ugly", Singleton.emptyPotion.duplicate()],
 							5 : ["The Tooth Fairy", Singleton.emptyPotion.duplicate()],
-							6 : ["Full Blossom", Singleton.emptyPotion.duplicate()],
-							7 : ["Mind-Boggler", Singleton.emptyPotion.duplicate()], 
-							8 : ["Potpourri", Singleton.emptyPotion.duplicate()],
+							6 : ["a Full Blossom", Singleton.emptyPotion.duplicate()],
+							7 : ["a Mind-Boggler", Singleton.emptyPotion.duplicate()], 
+							8 : ["a Potpourri", Singleton.emptyPotion.duplicate()],
 							9 : ["The Hippy", Singleton.emptyPotion.duplicate()]}
 							
 
