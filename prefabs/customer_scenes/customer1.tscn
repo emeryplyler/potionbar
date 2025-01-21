@@ -13,7 +13,8 @@ texture = ExtResource("2_whaj2")
 script = ExtResource("3_dv5p3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Kittie" index="0"]
-offset_left = -702.0
-offset_top = 154.0
-offset_right = -310.0
-offset_bottom = 276.0
+offset_left = -336.001
+offset_top = 249.999
+offset_right = 55.9994
+offset_bottom = 371.999
+rotation = -3.14159

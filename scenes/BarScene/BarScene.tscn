@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bo8st63f1kach"]
+[gd_scene load_steps=33 format=3 uid="uid://bo8st63f1kach"]
 
 [ext_resource type="Texture2D" uid="uid://cqc4a6uu646d8" path="res://assets/temp.png" id="1_3nxkg"]
 [ext_resource type="Script" path="res://scenes/BarScene/BarScene.gd" id="1_m3cd4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/GameScene/flask.gd" id="9_dhv0m"]
 [ext_resource type="Texture2D" uid="uid://bbv317hqgghip" path="res://assets/ingredients/cheery blossom.png" id="10_f5asl"]
 [ext_resource type="Script" path="res://scenes/GameScene/FinishPotion.gd" id="10_iq0v3"]
+[ext_resource type="PackedScene" uid="uid://b53c2o4cpq0a6" path="res://prefabs/IngredientEffect.tscn" id="10_l43kd"]
 [ext_resource type="Script" path="res://scenes/GameScene/ingredients.gd" id="11_2dbj5"]
 [ext_resource type="Texture2D" uid="uid://b521jj80chh75" path="res://assets/ingredients/rosemary.png" id="11_sl734"]
 [ext_resource type="Texture2D" uid="uid://bpm85c4v7hbo6" path="res://assets/ingredients/lavender.png" id="12_u5j1l"]
@@ -29,6 +30,63 @@
 [ext_resource type="Texture2D" uid="uid://0w7m1ve747t4" path="res://assets/ingredients/whiskers.png" id="26_m8y47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jxg2"]
+
+[sub_resource type="Animation" id="Animation_dcpdh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qxhbj"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.835, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.835, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j85av"]
+_data = {
+"RESET": SubResource("Animation_dcpdh"),
+"bounce": SubResource("Animation_qxhbj")
+}
 
 [node name="BarScene" type="Node2D"]
 script = ExtResource("1_m3cd4")
@@ -224,11 +282,12 @@ anchor_right = 2.2
 anchor_bottom = 2.2
 offset_left = 514.0
 offset_top = 474.0
-offset_right = 554.0
-offset_bottom = 514.0
+offset_right = 642.0
+offset_bottom = 602.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.23858, 0.990161)
 texture_normal = ExtResource("1_3nxkg")
-metadata/_edit_use_anchors_ = true
 
 [node name="FinishText" type="RichTextLabel" parent="FinishPotion/TextureButton"]
 z_index = 10
@@ -246,7 +305,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Bottle It!"
+text = "BREW"
 
 [node name="igrnedicets" type="Control" parent="."]
 layout_mode = 3
@@ -255,6 +314,7 @@ offset_left = 1152.0
 offset_right = 1192.0
 offset_bottom = 40.0
 script = ExtResource("11_2dbj5")
+ingredient_effect_class = ExtResource("10_l43kd")
 metadata/_edit_use_anchors_ = true
 
 [node name="cherryBlossoms" type="TextureButton" parent="igrnedicets"]
@@ -266,8 +326,15 @@ anchor_right = 1.15
 anchor_bottom = 1.025
 offset_right = 128.0
 offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("10_f5asl")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/cherryBlossoms"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="rosemary" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -280,12 +347,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("11_sl734")
 texture_pressed = ExtResource("11_sl734")
 texture_hover = ExtResource("11_sl734")
 texture_disabled = ExtResource("11_sl734")
 texture_focused = ExtResource("11_sl734")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/rosemary"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="lavender" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -298,12 +372,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("12_u5j1l")
 texture_pressed = ExtResource("12_u5j1l")
 texture_hover = ExtResource("12_u5j1l")
 texture_disabled = ExtResource("12_u5j1l")
 texture_focused = ExtResource("12_u5j1l")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/lavender"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="chemicalX" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -316,12 +397,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("13_pyte8")
 texture_pressed = ExtResource("13_pyte8")
 texture_hover = ExtResource("13_pyte8")
 texture_disabled = ExtResource("13_pyte8")
 texture_focused = ExtResource("13_pyte8")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/chemicalX"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="eyeOfNewt" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -334,12 +422,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("14_x0elx")
 texture_pressed = ExtResource("14_x0elx")
 texture_hover = ExtResource("14_x0elx")
 texture_disabled = ExtResource("14_x0elx")
 texture_focused = ExtResource("14_x0elx")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/eyeOfNewt"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="feathers" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -352,12 +447,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("15_1jv60")
 texture_pressed = ExtResource("15_1jv60")
 texture_hover = ExtResource("15_1jv60")
 texture_disabled = ExtResource("15_1jv60")
 texture_focused = ExtResource("15_1jv60")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/feathers"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="fur" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -370,6 +472,8 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("16_mp0ki")
 texture_pressed = ExtResource("16_mp0ki")
 texture_hover = ExtResource("16_mp0ki")
@@ -377,7 +481,12 @@ texture_disabled = ExtResource("16_mp0ki")
 texture_focused = ExtResource("16_mp0ki")
 metadata/_edit_use_anchors_ = true
 
-[node name="horn" type="TextureButton" parent="igrnedicets"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/fur"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
+
+[node name="horns" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.85
@@ -388,12 +497,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("17_duylg")
 texture_pressed = ExtResource("17_duylg")
 texture_hover = ExtResource("17_duylg")
 texture_disabled = ExtResource("17_duylg")
 texture_focused = ExtResource("17_duylg")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/horns"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="mandrakeRoot" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -406,6 +522,8 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("18_m10k1")
 texture_pressed = ExtResource("18_m10k1")
 texture_hover = ExtResource("18_m10k1")
@@ -413,7 +531,12 @@ texture_disabled = ExtResource("18_m10k1")
 texture_focused = ExtResource("18_m10k1")
 metadata/_edit_use_anchors_ = true
 
-[node name="nail" type="TextureButton" parent="igrnedicets"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/mandrakeRoot"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
+
+[node name="nails" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 19.6
@@ -424,12 +547,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("19_ascvp")
 texture_pressed = ExtResource("19_ascvp")
 texture_hover = ExtResource("19_ascvp")
 texture_disabled = ExtResource("19_ascvp")
 texture_focused = ExtResource("19_ascvp")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/nails"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="pigsTail" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -442,12 +572,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("20_fxall")
 texture_pressed = ExtResource("20_fxall")
 texture_hover = ExtResource("20_fxall")
 texture_disabled = ExtResource("20_fxall")
 texture_focused = ExtResource("20_fxall")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/pigsTail"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="poisonIvy" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -460,12 +597,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("21_ing05")
 texture_pressed = ExtResource("21_ing05")
 texture_hover = ExtResource("21_ing05")
 texture_disabled = ExtResource("21_ing05")
 texture_focused = ExtResource("21_ing05")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/poisonIvy"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="ravensClaw" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -478,12 +622,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("22_ocvpe")
 texture_pressed = ExtResource("22_ocvpe")
 texture_hover = ExtResource("22_ocvpe")
 texture_disabled = ExtResource("22_ocvpe")
 texture_focused = ExtResource("22_ocvpe")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/ravensClaw"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="scales" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -496,6 +647,8 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("23_dqeeb")
 texture_pressed = ExtResource("23_dqeeb")
 texture_hover = ExtResource("23_dqeeb")
@@ -503,7 +656,12 @@ texture_disabled = ExtResource("23_dqeeb")
 texture_focused = ExtResource("23_dqeeb")
 metadata/_edit_use_anchors_ = true
 
-[node name="sunflower" type="TextureButton" parent="igrnedicets"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/scales"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
+
+[node name="sunflowers" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.85
@@ -514,12 +672,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("24_emoka")
 texture_pressed = ExtResource("24_emoka")
 texture_hover = ExtResource("24_emoka")
 texture_disabled = ExtResource("24_emoka")
 texture_focused = ExtResource("24_emoka")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/sunflowers"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="tooth" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -532,12 +697,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("25_ulh0r")
 texture_pressed = ExtResource("25_ulh0r")
 texture_hover = ExtResource("25_ulh0r")
 texture_disabled = ExtResource("25_ulh0r")
 texture_focused = ExtResource("25_ulh0r")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/tooth"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="whiskers" type="TextureButton" parent="igrnedicets"]
 layout_mode = 1
@@ -550,12 +722,19 @@ offset_left = 200.0
 offset_top = 82.0
 offset_right = 328.0
 offset_bottom = 210.0
+pivot_offset = Vector2(64, 64)
+toggle_mode = true
 texture_normal = ExtResource("26_m8y47")
 texture_pressed = ExtResource("26_m8y47")
 texture_hover = ExtResource("26_m8y47")
 texture_disabled = ExtResource("26_m8y47")
 texture_focused = ExtResource("26_m8y47")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="igrnedicets/whiskers"]
+libraries = {
+"": SubResource("AnimationLibrary_j85av")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -587,14 +766,14 @@ autostart = true
 [connection signal="pressed" from="igrnedicets/eyeOfNewt" to="igrnedicets" method="_on_eyeOfNewt_pressed"]
 [connection signal="pressed" from="igrnedicets/feathers" to="igrnedicets" method="_on_feathers_pressed"]
 [connection signal="pressed" from="igrnedicets/fur" to="igrnedicets" method="_on_fur_pressed"]
-[connection signal="pressed" from="igrnedicets/horn" to="igrnedicets" method="_on_horns_pressed"]
+[connection signal="pressed" from="igrnedicets/horns" to="igrnedicets" method="_on_horns_pressed"]
 [connection signal="pressed" from="igrnedicets/mandrakeRoot" to="igrnedicets" method="_on_mandrakeRoot_pressed"]
-[connection signal="pressed" from="igrnedicets/nail" to="igrnedicets" method="_on_nails_pressed"]
+[connection signal="pressed" from="igrnedicets/nails" to="igrnedicets" method="_on_nails_pressed"]
 [connection signal="pressed" from="igrnedicets/pigsTail" to="igrnedicets" method="_on_pigsTail_pressed"]
 [connection signal="pressed" from="igrnedicets/poisonIvy" to="igrnedicets" method="_on_poisonIvy_pressed"]
 [connection signal="pressed" from="igrnedicets/ravensClaw" to="igrnedicets" method="_on_ravensClaw_pressed"]
 [connection signal="pressed" from="igrnedicets/scales" to="igrnedicets" method="_on_scales_pressed"]
-[connection signal="pressed" from="igrnedicets/sunflower" to="igrnedicets" method="_on_sunflowers_pressed"]
+[connection signal="pressed" from="igrnedicets/sunflowers" to="igrnedicets" method="_on_sunflowers_pressed"]
 [connection signal="pressed" from="igrnedicets/tooth" to="igrnedicets" method="_on_tooth_pressed"]
 [connection signal="pressed" from="igrnedicets/whiskers" to="igrnedicets" method="_on_whiskers_pressed"]
 [connection signal="timeout" from="Timer" to="Customers" method="_on_timer_timeout"]

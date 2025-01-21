@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53c2o4cpq0a6"]
+
+[ext_resource type="Script" path="res://prefabs/IngredientEffect.gd" id="1_yeql4"]
+
+[node name="IngredientEffect" type="Node2D"]
+script = ExtResource("1_yeql4")
+
+[node name="IngredientSprite" type="Sprite2D" parent="."]

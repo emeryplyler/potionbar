@@ -33,53 +33,53 @@ func _ready():
 	var seatIndex = randi_range(0, Singleton.Seats.size() -1);
 	seat = Singleton.Seats[seatIndex]
 	Singleton.Seats.pop_at(seatIndex)
-	print("AHHHHHHHHHHHHH seats:" ,Singleton.Seats)
+	#print("AHHHHHHHHHHHHH seats:" ,Singleton.Seats)
 	
 
 func ingredientList():
-	potions[0][1]["rosemary"] += 1
-	potions[0][1]["cherryBlossoms"] += 1
+	potions[0][1]["rosemary"] = true
+	potions[0][1]["cherryBlossoms"] = true
 	
-	potions[1][1]["scales"] += 1
-	potions[1][1]["mandrakeRoot"] += 1
-	potions[1][1]["chemicalX"] += 1
-	
-	
-	potions[2][1]["fur"] += 1
-	potions[2][1]["sunflowers"] += 1
-	potions[2][1]["pigsTail"] += 1
+	potions[1][1]["scales"] = true
+	potions[1][1]["mandrakeRoot"] = true
+	potions[1][1]["chemicalX"] = true
 	
 	
-	potions[3][1]["feathers"] += 1
-	potions[3][1]["ravensClaw"] += 1
+	potions[2][1]["fur"] = true
+	potions[2][1]["sunflowers"] = true
+	potions[2][1]["pigsTail"] = true
 	
 	
-	potions[4][1]["poisonIvy"] += 1
-	potions[4][1]["tooth"] += 1
+	potions[3][1]["feathers"] = true
+	potions[3][1]["ravensClaw"] = true
 	
 	
-	potions[5][1]["tooth"] += 1
-	potions[5][1]["lavender"] += 1
+	potions[4][1]["poisonIvy"] = true
+	potions[4][1]["tooth"] = true
 	
-	potions[6][1]["nails"] += 1
-	potions[6][1]["cherryBlossoms"] += 1
 	
-	potions[7][1]["whiskers"] += 1
-	potions[7][1]["eyeOfNewt"] += 1
+	potions[5][1]["tooth"] = true
+	potions[5][1]["lavender"] = true
 	
-	potions[8][1]["feathers"] += 1
-	potions[8][1]["mandrakeRoot"] += 1
-	potions[8][1]["sunflowers"] += 1
+	potions[6][1]["nails"] = true
+	potions[6][1]["cherryBlossoms"] = true
 	
-	potions[9][1]["horns"] += 1
-	potions[9][1]["lavender"] += 1
-	potions[9][1]["scales"] += 1
+	potions[7][1]["whiskers"] = true
+	potions[7][1]["eyeOfNewt"] = true
+	
+	potions[8][1]["feathers"] = true
+	potions[8][1]["mandrakeRoot"] = true
+	potions[8][1]["sunflowers"] = true
+	
+	potions[9][1]["horns"] = true
+	potions[9][1]["lavender"] = true
+	potions[9][1]["scales"] = true
 	
 func randomizeOrder():
 	randomize()
 	order = potions[randi_range(0,9)]
 	Singleton.orders.append(order)
-	print("Orders: ", Singleton.orders)
+	#print("Orders: ", Singleton.orders)
 	orderGenerated = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

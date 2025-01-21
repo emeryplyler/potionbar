@@ -18,7 +18,7 @@ func _input(event):
 		if get_rect().has_point(to_local(event.position)):
 			if(!acceptOrder):
 				get_node("RichTextLabel").set_text("I would like " + Singleton.orders[get_parent().num][0])
-				print("order is: ", get_parent().order)
+				#print("order is: ", get_parent().order)
 				acceptOrder = true;
 			elif(Flask.potionFinished):
 				get_parent().served = true
@@ -27,7 +27,7 @@ func _input(event):
 				else:
 					print(":(")
 				Singleton.orders.pop_at(get_parent().num)
-				print(Singleton.orders)
+				#print(Singleton.orders)
 				Flask.flask_contents = Singleton.emptyPotion
 				Flask.potionFinished = false
 				Singleton.Seats.append(get_parent().seat)
